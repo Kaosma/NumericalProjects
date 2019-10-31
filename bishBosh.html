@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+
+			function update() {
+				var slider = parseInt(document.getElementById("theRange").value);
+
+				var output = "";
+
+				var bish = parseInt(document.getElementById("bishNumber").value);
+
+				var bosh = parseInt(document.getElementById("boshNumber").value);
+
+				var i = 1;
+
+				while(i <= slider ){
+					if (i%bish == 0 && i%bosh == 0){
+						output += "BishBosh"+"<br>";
+
+					} else if(i%bish == 0){
+						output += "Bish"+"<br>";
+
+					} else if(i%bosh == 0){
+						output += "Bosh"+"<br>";
+
+					} else{
+						output += i+"<br>";
+					}
+					i++;
+				}
+
+				document.getElementById("rangeValue").innerHTML = slider;
+				document.getElementById("bishValue").innerHTML = bish;
+				document.getElementById("boshValue").innerHTML = bosh;
+				document.getElementById("numbers").innerHTML = output;
+			}
+
+		</script>
+
+		<link rel = "stylesheet" type = "text/css" href="bishBoshStyle.css">
+	</head>
+
+	<body onload="update(); setInterval('update()', 500 )">
+		<h2>
+			Please choose a range number: 
+		</h2>
+
+  		<div class = "slideContainer">
+  			<input type = "range" min = "1" max = "100" value = "1" id = "theRange" class = "slider">
+  			<p> Value: <span id = "rangeValue"> </span> </p>
+  		</div>
+
+  		<br> <br> <br>
+
+  		<h2>
+			Please choose a Bish and Bosh number: 
+		</h2>
+  		<div class = "bishSlider">
+  			Bish
+  			<input type = "range" min = "1" max = "10" value = "1" id = "bishNumber" class = "bishslider">
+  			<p1> Value: <span id = "bishValue"> </span> </p1>
+  		</div>
+  		<br>
+
+  		<div class = "boshSlider">
+  			Bosh
+  			<input type = "range" min = "1" max = "10" value = "1" id = "boshNumber" class = "boshslider">
+  			<p1> Value: <span id = "boshValue"> </span> </p1>
+  		</div>
+  		<br> <br>
+
+  		<div id = "numbers"> </div>
+	</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			// 1
+			function showResult() {
+				var a = document.getElementById("numberOne").value
+				var b = document.getElementById("numberTwo").value
+
+				document.getElementById("result").innerHTML = "Sum = "+ (parseInt(a)+parseInt(b)) +"<br>"+ "Difference = "+ Math.abs(a-b) +"<br>"+ "Product = " + (a*b)
+			}
+
+			// 2
+			function oneHundred() {
+				var h = parseInt(document.getElementById("hundredNumber").value)
+				var answer = ""
+				if(h < 100) {
+					answer = "Smaller than 100"
+				} else if (h > 100) {
+					answer = "Larger than 100"
+				} else {
+					answer = "Equal to 100"
+				} 
+				document.getElementById("answer").innerHTML = answer
+			}
+
+			// 3
+			function convertWeekday(){
+				var weekNumber = 0;
+
+				switch (document.getElementById("weekday").value.toLowerCase()) {
+					case "monday":
+						weekNumber = 1
+						break;
+					case "tuesday":
+						weekNumber = 2
+						break;
+					case "wednesday":
+						weekNumber = 3
+						break;
+					case "thursday":
+						weekNumber = 4
+						break;
+					case "friday":
+						weekNumber = 5
+						break;
+					case "saturday":
+						weekNumber = 6
+						break;
+					case "sunday":
+						weekNumber = 7
+						break;
+
+				}
+				document.getElementById("weekdayNumber").innerHTML = weekNumber
+			}
+
+			// 4
+			function loopIt() {
+				var total = "";
+
+				for(var i=1; i<=100; i++) {
+					if(i < 50) {
+						total += "Number is : " + i + " and is smaller than 50" + "<br>"
+					} else if (i > 50) {
+						total += "Number is : " + i + " and is larger than 50" + "<br>"
+					} else {
+						total += "Number is 50!" + "<br>"
+					}
+				}
+				document.getElementById("done").innerHTML = total
+			}
+
+			// 5
+			function loopItUp() {
+				var t = 65536;
+				var last = "";
+
+				while(t>2){
+					last += (t + "<br>") ; 
+					t /= 2;
+				}
+				document.getElementById("finish").innerHTML = last
+			}
+		</script>
+	</head>
+
+
+	<body>
+		<!-- 1 -->
+		<h2>
+			Please insert 2 numbers below
+		</h2>
+
+		<form id="form1" action="/action_page.php">
+
+			First number: <input type="text" id="numberOne"><br>
+		  	Second number: <input type="text" id="numberTwo"><br><br>
+  			<input type="button" onclick="showResult()" value="Submit">
+		</form>
+
+		<p id = "result"> </p>
+		<br><br><br>
+
+		<!-- 2 -->
+		<h2>
+			Please insert a number below
+		</h2>
+
+		<form id="form2" action="/action_page.php">
+
+			Number: <input type="text" id="hundredNumber"><br>
+  			<input type="button" onclick="oneHundred()" value="Submit">
+		</form>
+
+		<p id = "answer"> </p>
+		<br><br><br>
+
+		<!-- 3 -->
+		<h2>
+			Please insert a weekday below
+		</h2>
+
+		<form id="form3" action="/action_page.php">
+
+			Weekday: <input type="text" id="weekday"><br>
+  			<input type="button" onclick="convertWeekday()" value="Submit">
+		</form>
+
+		<p id = "weekdayNumber"> </p>
+		<br><br><br>
+
+		<!-- 4 -->
+		<h2>
+			Press button below to make MAGIC happen
+		</h2>
+
+  		<button type="button" onclick="loopIt()"> KLICKAAAAAA </button>
+
+		<p id = "done"> </p>
+		<br><br><br>
+
+		<!-- 5 -->
+		<h2>
+			Press button below to make MATH happen
+		</h2>
+
+  		<button type="button" onclick="loopItUp()"> DO IT </button>
+
+		<p id = "finish"> </p>
+	</body>
+</html>
