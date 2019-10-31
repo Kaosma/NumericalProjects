@@ -3,7 +3,7 @@
 	<head>
 		<script>
 
-			function update() {
+			function listNumbers() {
 				var slider = parseInt(document.getElementById("theRange").value);
 
 				var output = "";
@@ -41,7 +41,7 @@
 		<link rel = "stylesheet" type = "text/css" href="bishBoshStyle.css">
 	</head>
 
-	<body onload="update(); setInterval('update()', 500 )">
+	<body onload = " listNumbers(); setInterval('listNumbers()', 500 )">
 		<h2>
 			Please choose a range number: 
 		</h2>
