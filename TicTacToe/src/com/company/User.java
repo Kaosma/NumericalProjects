@@ -1,5 +1,4 @@
 package com.company;
-import java.util.*;
 
 public class User {
     private String name;
