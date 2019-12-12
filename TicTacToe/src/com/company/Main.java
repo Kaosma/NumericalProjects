@@ -40,12 +40,7 @@ public class Main {
                 input = reader.next();
                 game.input(playerTwo, input);
                 System.out.println(updateGame(game));
-                playerOne.setWon(true);
-            }
-            else {
-                break;
             }
         }
-
     }
 }

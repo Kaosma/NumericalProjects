@@ -52,14 +52,41 @@ public class Field {
         }
     }
 
-    //Check Neighbor to see winning possibilty
-    public void checkNeighbor(int x, int y){
+    //Check if a player has won
+    public void checkWin(int x, int y, User player){
         int currentX = x;
         int currentY = y;
-        if(x+1 < size || y+1 < size) {
-            if(this.grid[x+1][y+1] == this.grid[x][y]) {
+        int rowCounter = 0;
+        int diagonalCounter = 0;
+        int columnCounter = 0;
+
+        System.out.println(currentX);
+        System.out.println(currentY);
+        for(int i = 1; i < size; i++) {
+            if(grid[i][currentY] == player.getCharacter()) {
+                columnCounter++;
             }
         }
+
+        for(int j = 1; j < size; j++) {
+            if(grid[currentX][j] == player.getCharacter()) {
+                rowCounter++;
+            }
+        }
+
+        for(int ij = 1; ij < size; ij++) {
+            if(grid[ij][ij] == player.getCharacter()) {
+                diagonalCounter++;
+            }
+        }
+
+        if((columnCounter == size-1) || (rowCounter == size-1) || (diagonalCounter == size-1)) {
+            player.setWon(true);
+            System.out.println();
+            System.out.println(player.getName() + " wins!!");
+        }
+
+
     }
     //Input method
     public void input(User player, String coordinate){
@@ -69,13 +96,11 @@ public class Field {
         int y = alphabet.indexOf(first)+1;
         int x = numlist.indexOf(second)+1;
 
-        System.out.println(x);
-        System.out.println(y);
         if(this.grid[x][y] == " "){
             this.grid[x][y] = player.getCharacter();
         } else{
             System.out.println("FULL!");
         }
-        checkNeighbor(x,y);
+        checkWin(x,y, player);
     }
 }
