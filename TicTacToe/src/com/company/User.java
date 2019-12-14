@@ -3,6 +3,7 @@ package com.company;
 public class User {
     private String name;
     private String character;
+    private int wins = 0;
     public boolean won = false;
 
     //Constructor
@@ -24,15 +25,16 @@ public class User {
         return won;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setCharacter(String character) {
-        this.character = character;
-    }
-
     public void setWon(boolean won) {
         this.won = won;
+    }
+
+    public int getWins() {
+        return wins;
+    }
+
+    //Adding wins for a User
+    public void addWin() {
+        wins++;
     }
 }

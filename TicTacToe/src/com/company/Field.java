@@ -5,6 +5,7 @@ import java.util.*;
 public class Field {
     private int size;
     private String[][] grid;
+    private List<User> players;
     private int filled;
     private boolean tied;
     private List<String> alphabet = Arrays.asList("A", "B", "C", "D", "E", "F", "G", "H", "I");
@@ -14,9 +15,9 @@ public class Field {
     public Field(int size) {
         this.size = size + 1;
         this.grid = new String[this.size][this.size];
-        setCoordinateBorder(this.size);
-        this.filled = 0;
+        setCoordinateBorder();
         this.tied = false;
+        this.players = new ArrayList<User>();
     }
 
     //Getters and Setters
@@ -34,24 +35,32 @@ public class Field {
         return "\n" + Arrays.deepToString(grid).replace("],", "\n" + border + "\n").replace("[", "").replace(",", " │").replace("]]", "");
     }
 
-    public void setFilled(int filled) {
-        this.filled = filled;
+    //Add users to list of players
+    public void addUser(User player) {
+        this.players.add(player);
     }
 
-    //Setting the coordinate system around the board
-    public void setCoordinateBorder(int dimension) {
-        this.grid[0][0] = "  ";
-        for (int j = 1; j < dimension; j++) {
-            this.grid[0][j] = alphabet.get(j - 1);
-        }
-        for (int i = 1; i < dimension; i++) {
-            this.grid[i][0] = numlist.get(i - 1);
-        }
-        for (int i = 1; i < dimension; i++) {
-            for (int j = 1; j < dimension; j++) {
+    //Reset grid
+    public void resetGrid() {
+        for (int i = 1; i < this.size; i++) {
+            for (int j = 1; j < this.size; j++) {
                 this.grid[i][j] = " ";
             }
         }
+        this.filled = 0;
+        this.tied = false;
+    }
+
+    //Setting the coordinate system around the board
+    public void setCoordinateBorder() {
+        this.grid[0][0] = "  ";
+        for (int j = 1; j < this.size; j++) {
+            this.grid[0][j] = alphabet.get(j - 1);
+        }
+        for (int i = 1; i < this.size; i++) {
+            this.grid[i][0] = numlist.get(i - 1);
+        }
+        resetGrid();
     }
 
     //Check if a player has won
@@ -89,6 +98,7 @@ public class Field {
             player.setWon(true);
             System.out.println();
             System.out.println(player.getName() + " wins!!");
+            player.addWin();
         } else if (filled == (size - 1) * (size - 1)) {
             this.tied = true;
             System.out.println();
@@ -104,7 +114,7 @@ public class Field {
         int y = alphabet.indexOf(first) + 1;
         int x = numlist.indexOf(second) + 1;
 
-        //check if a tile is empty and if so, inputs to it
+        //check if a tile is empty and if so, inputs into it
         if (this.grid[x][y] == " ") {
             this.grid[x][y] = player.getCharacter();
             filled++;
@@ -113,6 +123,15 @@ public class Field {
         } else {
             return false;
         }
+    }
+
+    //Update leaderboard method
+    public String updateLeaderboard() {
+        String leaderboard = "       LEADERBOARD \n";
+        for (int i = 0; i < players.size(); i++) {
+            leaderboard += (players.get(i).getName() + "| " + players.get(i).getWins() + " W " + "       ");
+        }
+        return leaderboard;
     }
 
 }
