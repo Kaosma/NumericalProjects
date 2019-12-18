@@ -148,7 +148,7 @@ public class Field {
     public String updateLeaderboard() {
         String leaderboard = "       LEADERBOARD \n";
         for (int i = 0; i < players.size(); i++) {
-            leaderboard += (players.get(i).getName() + "| " + players.get(i).getWins() + " W " + "       ");
+            leaderboard += (players.get(i).getName() + "| " + players.get(i).getWins() + " W " + "        ");
         }
         return leaderboard;
     }
