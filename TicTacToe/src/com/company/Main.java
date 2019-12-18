@@ -14,18 +14,18 @@ public class Main {
         //Scanner for reading in the game size
         Scanner reader = new Scanner(System.in);
         System.out.println("Please select size for your 2 dimensional game, the width and height will be the same (MIN 3 - MAX 9): ");
-        int size = reader.nextInt();
+        int size = 0;
+        boolean correctInput = false;
 
-        /*while(true) {
+        while(!correctInput) {
             try {
                 String s = reader.nextLine();
                 size = Integer.parseInt(s);
-
+                correctInput = true;
             } catch (Exception e) {
                 System.out.println("Try again (MIN 3 - MAX 9): ");
             }
-        }*/
-
+        }
 
         //Initiating field with game size
         Field game = new Field(size);
@@ -47,19 +47,19 @@ public class Main {
 
         while (!quit) {
 
-            //Game info printer
+            // Game info printer
             System.out.println();
             System.out.println(updateGame(game));
             System.out.println();
             System.out.println("First to " + size + " in a row wins!");
 
-            //Running the game until player 1 or player 2 wins or until all boxes are filled
+            // Running the game until player 1 or player 2 wins or until all boxes are filled
             while (!playerOne.isWon() && !playerTwo.isWon() && !game.getEven()) {
 
-                //turn counter to keep track of who's turn it is
+                // Turn counter to keep track of who's turn it is
                 int turn = 1;
 
-                //reading and inputing  valid moves for player 1
+                // Reading and inputing valid moves for player 1
                 while (turn != 2) {
                     System.out.println();
                     System.out.println(playerOne.getName() + " choose coordinate (eg. a4): ");
@@ -69,12 +69,12 @@ public class Main {
                     } else {
                         turn = 1;
                         System.out.println();
-                        System.out.println("Invalid move");
+                        System.out.println("Invalid move!");
                     }
                 }
                 System.out.println(updateGame(game));
 
-                //reading and inputing  valid moves for player 1
+                // Reading and inputing valid moves for player 1
                 if (!playerOne.isWon() && !game.getEven()) {
                     while (turn != 1) {
                         System.out.println();
@@ -109,10 +109,5 @@ public class Main {
                 game.resetGrid();
             }
         }
-
     }
 }
-/*
-- Exceptions
-- Spec
-*/

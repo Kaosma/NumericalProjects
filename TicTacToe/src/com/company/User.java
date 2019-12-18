@@ -6,13 +6,13 @@ public class User {
     private int wins = 0;
     public boolean won = false;
 
-    //Constructor
+    // Constructor
     User(String name, String character) {
         this.name = name;
         this.character = character;
     }
 
-    //Getters and Setters
+    // Getters and Setters
     public String getName() {
         return name;
     }
@@ -33,7 +33,7 @@ public class User {
         return wins;
     }
 
-    //Adding wins for a User
+    // Adding wins for a User
     public void addWin() {
         wins++;
     }

@@ -11,7 +11,7 @@ public class Field {
     private List<String> alphabet = Arrays.asList("A", "B", "C", "D", "E", "F", "G", "H", "I");
     private List<String> numlist = Arrays.asList("1", "2", "3", "4", "5", "6", "7", "8", "9");
 
-    //Constructor
+    // Constructor
     public Field(int size) {
         this.size = size + 1;
         this.grid = new String[this.size][this.size];
@@ -20,7 +20,7 @@ public class Field {
         this.players = new ArrayList<User>();
     }
 
-    //Getters and Setters
+    // Getters and Setters
     public boolean getEven() {
         return tied;
     }
@@ -35,12 +35,12 @@ public class Field {
         return "\n" + Arrays.deepToString(grid).replace("],", "\n" + border + "\n").replace("[", "").replace(",", " │").replace("]]", "");
     }
 
-    //Add users to list of players
+    // Add users to list of players
     public void addUser(User player) {
         this.players.add(player);
     }
 
-    //Reset grid
+    // Reset grid
     public void resetGrid() {
         for (int i = 1; i < this.size; i++) {
             for (int j = 1; j < this.size; j++) {
@@ -51,7 +51,7 @@ public class Field {
         this.tied = false;
     }
 
-    //Setting the coordinate system around the board
+    // Setting the coordinate system around the board
     public void setCoordinateBorder() {
         this.grid[0][0] = "  ";
         for (int j = 1; j < this.size; j++) {
@@ -63,31 +63,35 @@ public class Field {
         resetGrid();
     }
 
-    //Check if a player has won
+    // Check if a player has won
     public void checkWin(int x, int y, User player) {
         int columnCounter = 0;
         int rowCounter = 0;
         int diagonalOneCounter = 0;
         int diagonalTwoCounter = 0;
 
+        // Column
         for (int i = 1; i < size; i++) {
             if (grid[i][y] == player.getCharacter()) {
                 columnCounter++;
             }
         }
 
+        // Row
         for (int j = 1; j < size; j++) {
             if (grid[x][j] == player.getCharacter()) {
                 rowCounter++;
             }
         }
 
+        // Diagonally
         for (int ij = 1; ij < size; ij++) {
             if (grid[ij][ij] == player.getCharacter()) {
                 diagonalOneCounter++;
             }
         }
 
+        // Diagonally
         for (int ij = 1; ij < size; ij++) {
             if (grid[ij][size - ij] == player.getCharacter()) {
                 diagonalTwoCounter++;
@@ -106,26 +110,41 @@ public class Field {
         }
     }
 
-    //Input method
+    // Input method
     public boolean input(User player, String coordinate) {
-        String first = String.valueOf(coordinate.charAt(0)).toUpperCase();
-        String second = String.valueOf(coordinate.charAt(1));
+        boolean validInput = false;
+        String first = "";
+        String second = "";
+
+        // Catch error if input is invalid
+        try {
+            first = String.valueOf(coordinate.charAt(0)).toUpperCase();
+            second = String.valueOf(coordinate.charAt(1));
+            validInput = true;
+        } catch (Exception e) {
+            validInput = false;
+        }
+        if(coordinate.length() != 2 || !validInput) {
+            return false;
+        }
 
         int y = alphabet.indexOf(first) + 1;
         int x = numlist.indexOf(second) + 1;
-
-        //check if a tile is empty and if so, inputs into it
-        if (this.grid[x][y] == " ") {
-            this.grid[x][y] = player.getCharacter();
-            filled++;
-            checkWin(x, y, player);
-            return true;
-        } else {
+        try{ // Check if a tile is empty and if so, inputs into it
+            if (this.grid[x][y] == " ") {
+                this.grid[x][y] = player.getCharacter();
+                filled++;
+                checkWin(x, y, player);
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
             return false;
         }
     }
 
-    //Update leaderboard method
+    // Update leaderboard method
     public String updateLeaderboard() {
         String leaderboard = "       LEADERBOARD \n";
         for (int i = 0; i < players.size(); i++) {
