@@ -37,4 +37,7 @@ public class User {
     public void addWin() {
         wins++;
     }
+
+
+   // public abstract int makeMove();
 }

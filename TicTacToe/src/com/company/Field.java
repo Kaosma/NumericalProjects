@@ -5,7 +5,6 @@ import java.util.*;
 public class Field {
     private int size;
     private String[][] grid;
-    private List<User> players;
     private int filled;
     private boolean tied;
     private List<String> alphabet = Arrays.asList("A", "B", "C", "D", "E", "F", "G", "H", "I");
@@ -17,7 +16,6 @@ public class Field {
         this.grid = new String[this.size][this.size];
         setCoordinateBorder();
         this.tied = false;
-        this.players = new ArrayList<User>();
     }
 
     // Getters and Setters
@@ -25,7 +23,7 @@ public class Field {
         return tied;
     }
 
-    public String getGrid() {
+    public String printGrid() {
         String border = "";
         for (int i = 0; i < this.size - 1; i++) {
             border += "———┼";
@@ -35,9 +33,24 @@ public class Field {
         return "\n" + Arrays.deepToString(grid).replace("],", "\n" + border + "\n").replace("[", "").replace(",", " │").replace("]]", "");
     }
 
-    // Add users to list of players
-    public void addUser(User player) {
-        this.players.add(player);
+    public boolean checkEmpty(int x, int y) {
+        return this.grid[x][y] == " ";
+    }
+
+    public void setGrid(int x, int y, String value) {
+        this.grid[x][y] = value;
+    }
+
+    public List<String> getAlphabet() {
+        return alphabet;
+    }
+
+    public List<String> getNumlist() {
+        return numlist;
+    }
+
+    public void addFilled() {
+        this.filled++;
     }
 
     // Reset grid
@@ -109,48 +122,4 @@ public class Field {
             System.out.println("Tied!");
         }
     }
-
-    // Input method
-    public boolean input(User player, String coordinate) {
-        boolean validInput = false;
-        String first = "";
-        String second = "";
-
-        // Catch error if input is invalid
-        try {
-            first = String.valueOf(coordinate.charAt(0)).toUpperCase();
-            second = String.valueOf(coordinate.charAt(1));
-            validInput = true;
-        } catch (Exception e) {
-            validInput = false;
-        }
-        if(coordinate.length() != 2 || !validInput) {
-            return false;
-        }
-
-        int y = alphabet.indexOf(first) + 1;
-        int x = numlist.indexOf(second) + 1;
-        try{ // Check if a tile is empty and if so, inputs into it
-            if (this.grid[x][y] == " ") {
-                this.grid[x][y] = player.getCharacter();
-                filled++;
-                checkWin(x, y, player);
-                return true;
-            } else {
-                return false;
-            }
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    // Update leaderboard method
-    public String updateLeaderboard() {
-        String leaderboard = "       LEADERBOARD \n";
-        for (int i = 0; i < players.size(); i++) {
-            leaderboard += (players.get(i).getName() + "| " + players.get(i).getWins() + " W " + "        ");
-        }
-        return leaderboard;
-    }
-
 }
