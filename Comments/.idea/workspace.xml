@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="be1d84e6-933c-4dc4-817a-19e5d5b2a2b9" name="Default" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="1ZuWJnK6p8eUsAy9Nk64e3Y50U8" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.Main" />
+      <module name="Comments" />
+      <option name="REDIRECT_INPUT" value="true" />
+      <option name="INPUT_FILE" value="$PROJECT_DIR$/../kommentarer" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="be1d84e6-933c-4dc4-817a-19e5d5b2a2b9" name="Default" comment="" />
+      <created>1585664729494</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1585664729494</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="396" y="98" key="#Main" timestamp="1585689855956">
+      <screen x="0" y="23" width="1440" height="821" />
+    </state>
+    <state x="396" y="98" key="#Main/0.23.1440.821@0.23.1440.821" timestamp="1585689855956" />
+    <state x="428" y="148" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1585689473210">
+      <screen x="0" y="23" width="1440" height="821" />
+    </state>
+    <state x="428" y="148" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.1440.821@0.23.1440.821" timestamp="1585689473210" />
+    <state width="674" height="198" key="GridCell.Tab.0.bottom" timestamp="1585869397304">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state width="679" height="198" key="GridCell.Tab.0.bottom/0.23.1440.816@0.23.1440.816" timestamp="1585702592193" />
+    <state width="674" height="198" key="GridCell.Tab.0.bottom/0.23.1440.821@0.23.1440.821" timestamp="1585791385247" />
+    <state width="674" height="198" key="GridCell.Tab.0.bottom/0.23.1440.822@0.23.1440.822" timestamp="1585869397304" />
+    <state width="674" height="198" key="GridCell.Tab.0.center" timestamp="1585869397303">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state width="679" height="198" key="GridCell.Tab.0.center/0.23.1440.816@0.23.1440.816" timestamp="1585702592190" />
+    <state width="674" height="198" key="GridCell.Tab.0.center/0.23.1440.821@0.23.1440.821" timestamp="1585791385247" />
+    <state width="674" height="198" key="GridCell.Tab.0.center/0.23.1440.822@0.23.1440.822" timestamp="1585869397303" />
+    <state width="674" height="198" key="GridCell.Tab.0.left" timestamp="1585869397303">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state width="679" height="198" key="GridCell.Tab.0.left/0.23.1440.816@0.23.1440.816" timestamp="1585702592190" />
+    <state width="674" height="198" key="GridCell.Tab.0.left/0.23.1440.821@0.23.1440.821" timestamp="1585791385247" />
+    <state width="674" height="198" key="GridCell.Tab.0.left/0.23.1440.822@0.23.1440.822" timestamp="1585869397303" />
+    <state width="674" height="198" key="GridCell.Tab.0.right" timestamp="1585869397304">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state width="679" height="198" key="GridCell.Tab.0.right/0.23.1440.816@0.23.1440.816" timestamp="1585702592192" />
+    <state width="674" height="198" key="GridCell.Tab.0.right/0.23.1440.821@0.23.1440.821" timestamp="1585791385247" />
+    <state width="674" height="198" key="GridCell.Tab.0.right/0.23.1440.822@0.23.1440.822" timestamp="1585869397304" />
+    <state x="397" y="266" key="com.intellij.ide.util.TipDialog" timestamp="1585866877472">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state x="397" y="265" key="com.intellij.ide.util.TipDialog/0.23.1440.816@0.23.1440.816" timestamp="1585701119662" />
+    <state x="397" y="266" key="com.intellij.ide.util.TipDialog/0.23.1440.821@0.23.1440.821" timestamp="1585780136743" />
+    <state x="397" y="266" key="com.intellij.ide.util.TipDialog/0.23.1440.822@0.23.1440.822" timestamp="1585866877472" />
+  </component>
+</project>
